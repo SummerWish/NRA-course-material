@@ -1,0 +1,45 @@
+1. 初始化 package.json
+npm init
+
+2. 按照 package.json 安装模块
+npm install
+
+3. 安装指定模块
+npm install my_module
+
+4. 安装指定模块，并写入 package.json
+npm install my_module --save
+
+5. colors（第三方）：在控制台上输出彩色文字
+文档：https://github.com/Marak/colors.js
+
+6. fs：读写文件
+文档：https://nodejs.org/api/fs.html
+
+7. underscore（第三方）：常用操作封装
+文档：http://underscorejs.org/
+
+8. nodemailer（第三方）：发送邮件
+文档：https://github.com/andris9/Nodemailer
+
+9. nodemailer-wellknown（第三方）：使 nodemailer 支持 QQ SMTP
+文档：https://github.com/andris9/nodemailer-wellknown
+
+10. request（第三方）：发送请求
+文档：https://github.com/request/request
+    在 request 中接收非 utf-8 编码的响应：encoding: null
+
+11. cheerio（第三方）：解析 HTML，使用 jQuery 方式访问节点
+文档：https://github.com/cheeriojs/cheerio
+
+12. iconv-lite（第三方）：编码转换
+文档：https://github.com/ashtuchkin/iconv-lite
+
+13. 异步编程
+
+使用 async 库控制流程：https://github.com/caolan/async
+使用 q 实现 Promise：https://github.com/kriskowal/q
+使用 ES6 generator 功能: https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Statements/function*
+    在 Nodejs 中开启 ES6 功能: https://github.com/joyent/node/wiki/ES6-(a.k.a.-Harmony)-Features-Implemented-in-V8-and-Available-in-Node
+c# await: https://msdn.microsoft.com/zh-cn/library/hh191443.aspx
+ES7 await: http://jakearchibald.com/2014/es7-async-functions/

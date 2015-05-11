@@ -1,0 +1,14 @@
+1. http.createServer
+https://nodejs.org/api/http.html#http_http_createserver_requestlistener
+
+2. 使用 express 简化服务器创建流程
+http://expressjs.com/
+
+3. 使用 express.static 提供静态文件服务
+http://expressjs.com/guide/using-middleware.html
+
+4. body-parser 中间件解析 POST/PUT body
+https://github.com/expressjs/body-parser
+
+5. compression 中间件对响应内容开启 gzip 压缩
+https://github.com/expressjs/compression

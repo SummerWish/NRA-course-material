@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<link rel="stylesheet" type="text/css" href="style.css">
+
+<!-- 显示正在载入 -->
+<div class="loading">
+  <h3>Loading...</h3>
+</div>
+
+<!-- 显示输入昵称 -->
+<div class="nick-dialog" style="display:none">
+  <h3>Please enter your nick name:</h3>
+  <div><input name="nick" class="nick" placeholder="nick name"></div>
+</div>
+
+<!-- 显示聊天 -->
+<div class="chat-dialog" style="display:none">
+  <div>
+    <div class="chat-area">
+      <h3>Hello, <span class="username"></span></h3>
+      <div><textarea class="chat" readonly></textarea></div>
+    </div>
+    <div class="list-area">
+      <h3>Online users</h3>
+      <textarea class="list" readonly></textarea>
+    </div>
+    <br clear="both">
+  </div>
+  <div>
+    <input name="comment" class="comment" placeholder="Let's chat!">
+  </div>
+</div>
+
+<script src="jquery.js"></script>
+<script src="/socket.io/socket.io.js"></script>
+<script>
+
+var nick = null;
+
+// 与服务器建立 WebSockets 连接
+var socket = io();
+
+// 成功建立连接的时候，隐藏正在载入的界面
+socket.on('connect', function() {
+  $('.loading').hide();
+  if (nick === null) {
+    // nick 变量为空：首次建立连接，显示输入昵称界面
+    $('.nick-dialog').show();
+  } else {
+    // nick 变量不为空：服务器重启或网络原因重新建立的连接，直接进入聊天界面
+    socket.emit('changename', nick);
+    $('.chat-dialog').show();
+  }
+})
+
+// 昵称文本框按下回车的时候，告诉服务器修改名字，并显示聊天界面
+$('.nick').keypress(function(ev) {
+  if (ev.which === 13) {
+    nick = $('.nick').val();
+    $('.username').text(nick);
+    socket.emit('changename', nick);
+    $('.nick-dialog').hide();
+    $('.chat-dialog').show();
+  }
+});
+
+// 有新消息的时候，显示在评论区顶部
+socket.on('comment', function(text) {
+  $('.chat').val(text + '\n' + $('.chat').val());
+});
+
+// 客户端列表改变的时候，更新列表
+socket.on('listchanged', function(list) {
+  $('.list').val(list.join('\n'));
+});
+
+// 评论文本框按下回车的时候，告诉服务器发送评论
+$('.comment').keydown(function(ev) {
+  if (ev.which === 13) {
+    socket.emit('comment', this.value);
+    this.value = '';
+  }
+});
+
+</script>

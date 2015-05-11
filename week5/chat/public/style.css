@@ -1,0 +1,43 @@
+body, input, textarea, button {
+  font-family: Seravek, Segoe, Tahoma, arial, "Hiragino Sans GB","Hiragino Sans GB W3", STHeiti, "Microsoft YaHei", sans-serif;
+  font-size: 14px;
+}
+
+input, textarea {
+  box-sizing: border-box;
+  padding: 5px;
+  border: 1px solid #DDD;
+  outline: 0;
+}
+
+h1, h2, h3, h4 {
+  font-weight: 300;
+}
+
+.chat {
+  width: 500px;
+  height: 300px;
+}
+
+.chat-area {
+  float: left;
+  width: 500px;
+  margin-right: 10px;
+}
+
+.list {
+  width: 150px;
+  height: 300px;
+}
+
+.list-area {
+  float: left;
+}
+
+textarea {
+  resize: none;
+}
+
+.comment {
+  width: 300px;
+}

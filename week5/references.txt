@@ -1,0 +1,11 @@
+1. WebSockets 介绍
+http://zh.wikipedia.org/wiki/WebSocket
+
+2. Ajax Long Polling (with PHP)
+http://stackoverflow.com/questions/333664/how-to-implement-basic-long-polling
+
+3. socket.io
+https://socket.io
+
+4. socket.io 与 express 共用 Web 服务端
+http://socket.io/docs/#using-with-express-3/4
